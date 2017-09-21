@@ -13,6 +13,7 @@ module.exports = {
     new webpack.LoaderOptionsPlugin({
       vue: {
         postcss: [
+          require('postcss-nested')(),
           require('autoprefixer')(),
         ]
       }
@@ -90,4 +91,9 @@ if (process.env.NODE_ENV === 'production') {
       minimize: true
     })
   ])
+} else {
+  module.exports.devServer = {
+    contentBase: path.join(__dirname, "dist"),
+    compress: true,
+  }
 }
