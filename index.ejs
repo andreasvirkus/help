@@ -5,7 +5,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Transparent working cultures">
-    
+
     <meta name="theme-color" content="#222233">
     <meta name="msapplication-TileColor" content="#222233">
     <meta name="msapplication-navbutton-color" content="#222233">
@@ -16,8 +16,11 @@
     <link rel="apple-touch-icon-precomposed" href="/assets/ico/favicon.png">
 
     <title><%= htmlWebpackPlugin.options.title %></title>
+
+    <style id="_outline-styles"></style>
   </head>
-  <body>
+  <body onmousedown="document.getElementById('_outline-styles').innerHTML='a{outline:none};button{outline:none;}'"
+    onkeydown="document.getElementById('_outline-styles').innerHTML='';">
     <div id="app"></div>
   </body>
 </html>

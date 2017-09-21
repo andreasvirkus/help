@@ -3,19 +3,23 @@
     <h2><Logo class="heading-logo" /> Help</h2>
 
     <nav>
-      Menu | Links
+      <a href="#">Companies</a>
+      <a href="#">Salaries</a>
 
-      <button>Login</button>
+      <login></login>
     </nav>
   </header>
 </template>
 
 <script>
-  import Logo from '../assets/ico/logo.svg';
+  import firebase from 'firebase'
+  import { config } from '../helpers/firebaseConfig'
+  import Logo from '../assets/ico/logo.svg'
+  import Login from './Login.vue';
 
   export default {
     name: 'navbar',
-    components: { Logo },
+    components: { Logo, Login },
   }
 </script>
 
@@ -32,9 +36,18 @@
     margin-left: auto;
   }
 
-  button {
-    background: none;
-    border: 1px solid #fafafa;
+  nav * {
     color: #fafafa;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  nav *:hover {
+    color: #999;
+  }
+
+  nav * + * {
+    display: inline-block;
+    margin-left: .8em;
   }
 </style>
