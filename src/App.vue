@@ -1,8 +1,8 @@
 <template>
   <div id="app" class="app-wrapper">
-    <navbar></navbar>
-
     <main id="js-main">
+      <navbar></navbar>
+
       <div class="content-wrapper">
         <h1>Transparent.</h1>
 
@@ -100,7 +100,7 @@ main .content-wrapper {
   margin: 0 auto;
 }
 
-.app-wrapper.tight main {
+body.tight main {
   transform: translateY(-60px) scale(0.9);
   cursor: pointer;
 }

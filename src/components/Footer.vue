@@ -22,9 +22,7 @@
     text-align: center;
     min-height: 200px;
     font-weight: bold;
-    color: #FFF;
     font-size: 2.125rem;
-    /*font-family: "Raleway", sans-serif;*/
     padding-top: 40px;
   }
 </style>

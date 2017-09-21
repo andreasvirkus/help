@@ -3,6 +3,9 @@
 </template>
 
 <script>
+  import firebase from 'firebase'
+  import { config } from '../helpers/firebaseConfig'
+
   export default {
     name: 'login',
     created() {

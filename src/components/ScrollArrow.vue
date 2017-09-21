@@ -10,7 +10,7 @@
     name: 'scroll-arrow',
     methods: {
       scrollController(event) {
-        if (window.scrollY + window.innerHeight > document.getElementById('js-main').outerHeight()) {
+        if (window.scrollY + window.innerHeight > document.getElementById('js-main').offsetHeight) {
           document.body.classList.add('tight')
         } else {
           document.body.classList.remove('tight')
@@ -22,13 +22,13 @@
         console.log('event src:', event.srcElement)
         // $("html").on("click", "body.tight .wrapper", function() {
         if (event.srcElement.id === 'js-main' && event.srcElement.classList.contains('tight')) {
-          scroll.top(document.getElementById('js-main').outerHeight() - window.innerHeight)
+          scroll.top(document.getElementById('js-main').offsetHeight - window.innerHeight)
         }
       }
     },
     mounted() {
       window.onscroll = debounce(this.scrollController, 200)
-      document.body.addEventListener('click', clickController)
+      document.body.addEventListener('click', this.clickController)
     }
   }
 </script>

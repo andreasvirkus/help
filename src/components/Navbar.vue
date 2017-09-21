@@ -12,8 +12,6 @@
 </template>
 
 <script>
-  import firebase from 'firebase'
-  import { config } from '../helpers/firebaseConfig'
   import Logo from '../assets/ico/logo.svg'
   import Login from './Login.vue';
 
