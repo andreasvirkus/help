@@ -6,7 +6,7 @@
 </template>
 
 <script>
-  import Logo from '../assets/ico/logo.svg';
+  import Logo from '../assets/ico/logo.svg'
 
   export default {
     name: 'foot',

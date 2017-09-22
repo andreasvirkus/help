@@ -13,7 +13,7 @@
 
 <script>
   import Logo from '../assets/ico/logo.svg'
-  import Login from './Login.vue';
+  import Login from './Login.vue'
 
   export default {
     name: 'navbar',
@@ -28,6 +28,7 @@
     background-color: #223;
     color: #fafafa;
     align-items: baseline;
+    box-shadow: 0px 2px 55px rgba(0, 0, 0, 0.5);
   }
 
   nav {
@@ -38,6 +39,7 @@
     color: #fafafa;
     text-decoration: none;
     cursor: pointer;
+    vertical-align: middle;
   }
 
   nav *:hover {

@@ -3,23 +3,7 @@
     <main id="js-main">
       <navbar></navbar>
 
-      <div class="content-wrapper">
-        <h1>Transparent.</h1>
-
-        <p>Help tries to bring transparency to the work cultures and salaries of different companies.
-
-        <p>Uses LinkedIn or GitHub to validate that the user worked/works at the organization.</p>
-
-        <p><strong>All reviews are anonymous!</strong> The authentication is only used for the active session and does not persist.</p>
-
-        <h2>Popular companies</h2>
-        <ul>
-          <li><a href="https://vuejs.org" target="_blank">Transferwise</a></li>
-          <li><a href="https://forum.vuejs.org" target="_blank">Pipedrive</a></li>
-          <li><a href="https://gitter.im/vuejs/vue" target="_blank">Gitlab</a></li>
-          <li><a href="https://twitter.com/vuejs" target="_blank">Taxify</a></li>
-        </ul>
-      </div>
+      <router-view></router-view>
 
       <scroll-arrow></scroll-arrow>
     </main>
@@ -29,9 +13,9 @@
 </template>
 
 <script>
-  import Navbar from './components/Navbar.vue';
-  import Foot from './components/Footer.vue';
-  import ScrollArrow from './components/ScrollArrow.vue';
+  import Navbar from './components/Navbar.vue'
+  import Foot from './components/Footer.vue'
+  import ScrollArrow from './components/ScrollArrow.vue'
 
   export default {
     name: 'app',
@@ -75,6 +59,7 @@ body {
   min-height: 100vh;
   height: 100%;
   flex-direction: column;
+  background-color: #223;
 }
 
 .app-wrapper,
@@ -92,12 +77,13 @@ main {
   transition: all 0.5s ease 0s;
   box-shadow: 0px 22px 54px rgba(0, 0, 0, 0.5);
   will-change: transform;
+  color: #fafafa;
 }
 
 main .content-wrapper {
   width: 100%;
   max-width: 40em;
-  margin: 0 auto;
+  margin: 3em auto;
 }
 
 body.tight main {
@@ -105,8 +91,16 @@ body.tight main {
   cursor: pointer;
 }
 
-h1, h2 {
+h1 {
   font-weight: normal;
+  display: block;
+  font-size: 2em;
+  margin: 0.7em 0;
+  font-weight: bold;
+}
+
+h2 {
+  margin: 0.85em 0;
 }
 
 .heading-logo {
@@ -124,7 +118,11 @@ li {
 }
 
 a {
-  color: #223;
+  color: #c29ef3;
   text-decoration-skip: ink;
+}
+
+p {
+  margin: 1em 0;
 }
 </style>

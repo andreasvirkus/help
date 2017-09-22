@@ -1,33 +1,38 @@
 <template>
-  <div class="arrow animated bounce"></div>
+  <div class="arrow animated bounce" v-show="showArrow">
+    <Chevron />
+  </div>
 </template>
 
 <script>
-  import debounce from 'lodash.debounce';
-  import scroll from 'scroll';
+  import Chevron from '../assets/ico/chevron.svg'
+  import debounce from 'lodash.debounce'
+  import { scroll } from '../helpers/scroll'
 
   export default {
     name: 'scroll-arrow',
+    components: { Chevron },
+    data() {
+      return {
+        showArrow: true
+      }
+    },
     methods: {
       scrollController(event) {
         if (window.scrollY + window.innerHeight > document.getElementById('js-main').offsetHeight) {
           document.body.classList.add('tight')
+          this.showArrow = false
         } else {
           document.body.classList.remove('tight')
+          this.showArrow = true
         }
       },
       clickController(event) {
-        // Back to browsing mode
-        console.log('event target:', event.target)
-        console.log('event src:', event.srcElement)
-        // $("html").on("click", "body.tight .wrapper", function() {
-        if (event.srcElement.id === 'js-main' && event.srcElement.classList.contains('tight')) {
-          scroll.top(document.getElementById('js-main').offsetHeight - window.innerHeight)
-        }
+        event.srcElement.id === 'js-main' && document.body.classList.contains('tight') && scroll(0)
       }
     },
     mounted() {
-      window.onscroll = debounce(this.scrollController, 200)
+      window.onscroll = debounce(this.scrollController, 100)
       document.body.addEventListener('click', this.clickController)
     }
   }
@@ -53,8 +58,11 @@
     margin-left: -20px;
     width: 20px;
     height: 20px;
-    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMjYgMjYiIHZlcnNpb249IjEuMSI+CiAgPGc+CiAgICA8cGF0aCBzdHlsZT0iICIgZD0iTSA2LjQxNDA2MyA3LjU4NTkzOCBMIDMuNTg1OTM4IDEwLjQxNDA2MyBMIDEzIDE5LjgyODEyNSBMIDIyLjQxNDA2MyAxMC40MTQwNjMgTCAxOS41ODU5MzggNy41ODU5MzggTCAxMyAxNC4xNzE4NzUgWiAiPjwvcGF0aD4KICA8L2c+Cjwvc3ZnPg==);
     background-size: contain;
+  }
+
+  .arrow svg {
+    fill: #fafafa;
   }
 
   .bounce {
